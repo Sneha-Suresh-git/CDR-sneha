@@ -20,8 +20,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for modern professional styling
-st.markdown("""
+# Initialize session state
+if 'api_key' not in st.session_state:
+    st.session_state.api_key = ""
+
+def apply_custom_css():
+    """Apply custom CSS styling"""
+    st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     
@@ -195,10 +200,6 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
-# Initialize session state
-if 'api_key' not in st.session_state:
-    st.session_state.api_key = ""
 
 def get_tower_location(mcc, mnc, lac_tac, cell_id, api_key):
     """Get tower location from Unwired Labs API with enhanced error handling"""
@@ -494,6 +495,9 @@ def format_duration(seconds):
 
 # Main App
 def main():
+    # Apply custom styling
+    apply_custom_css()
+    
     # Header
     st.markdown("<h1 style='text-align: center;'>📡 CDR Analysis Pro</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; color: #666; font-size: 1.2rem;'>Professional Call Data Record Analysis & Tower Location Tracking</p>", unsafe_allow_html=True)
