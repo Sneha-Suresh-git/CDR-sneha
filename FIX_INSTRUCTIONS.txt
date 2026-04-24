@@ -1,0 +1,41 @@
+========================================
+HOW TO FIX STREAMLIT CLOUD DEPLOYMENT
+========================================
+
+PROBLEM: Your app.py is inside the .streamlit folder, but it needs to be in the root of your repository.
+
+SOLUTION - Follow these steps:
+
+1. Open File Explorer and go to:
+   C:\Users\SNEHA\Downloads\billsight\billsight
+
+2. You should see a folder called ".streamlit"
+
+3. Open the .streamlit folder and COPY these files:
+   - app.py
+   - requirements.txt
+   - README.md
+   - .gitignore
+
+4. PASTE them in the parent folder (billsight\billsight)
+
+5. Open PowerShell in that folder and run:
+   git add .
+   git commit -m "Fix: Move files to root directory"
+   git push origin main
+
+6. Wait 2 minutes and refresh your Streamlit Cloud app
+
+Your app will then work perfectly!
+
+========================================
+ALTERNATIVE: Use GitHub Web Interface
+========================================
+
+1. Go to: https://github.com/Sneha-Suresh-git/CDR-sneha
+2. Click "Add file" > "Upload files"
+3. Drag and drop: app.py, requirements.txt from your .streamlit folder
+4. Click "Commit changes"
+5. Done!
+
+========================================
