@@ -12,7 +12,7 @@ from collections import defaultdict
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Page configuration
+# Page configuration - MUST BE FIRST
 st.set_page_config(
     page_title="CDR Analysis Pro",
     page_icon="📡",
@@ -958,4 +958,8 @@ def bill_analysis_page():
                     )
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        st.error(f"Application Error: {str(e)}")
+        st.exception(e)
