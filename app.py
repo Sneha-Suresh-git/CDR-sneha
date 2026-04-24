@@ -20,9 +20,10 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Initialize session state
-if 'api_key' not in st.session_state:
-    st.session_state.api_key = ""
+def initialize_session_state():
+    """Initialize session state variables"""
+    if 'api_key' not in st.session_state:
+        st.session_state.api_key = ""
 
 def apply_custom_css():
     """Apply custom CSS styling"""
@@ -495,6 +496,9 @@ def format_duration(seconds):
 
 # Main App
 def main():
+    # Initialize session state
+    initialize_session_state()
+    
     # Apply custom styling
     apply_custom_css()
     
